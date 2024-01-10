@@ -30,23 +30,24 @@ executeCommand = \command ->
         Toggle ip -> actToggle ip
         Version -> printVersion
         Help -> printHelp
-        _ -> printVersion
+        _ -> printHelp
 
 printVersion =
     Stdout.line "\(appVersion)"
 
 printHelp =
-    str = Str.joinWith [
-        "\(appName) v\(appVersion)",
-        "",
-        "Usage:",
-        "\(appName) <command> [<arguments>]",
-        "",
-        "Commands:",
-        "  toggle <ip>    Toggle WLED instance power",
-        "  version        Print current version number and exit",
-        "  help           Print usage info and exit",
-    ] "\n"
+    str =
+        """
+        \(appName) v\(appVersion)
+
+        Usage:
+        \(appName) <command> [<arguments>]
+
+        Commands:
+          toggle <ip>    Toggle WLED instance power
+          version        Print current version number and exit
+          help           Print usage info and exit
+        """
     Stdout.line str
 
 actToggle = \ip ->
