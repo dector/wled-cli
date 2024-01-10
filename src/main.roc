@@ -4,7 +4,7 @@ app "wled"
     provides [main] to pf
 
 appName = "wled"
-appVersion = "0.0.1"
+appVersion = "0.1.0"
 
 main =
     args <- await Arg.list
